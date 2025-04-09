@@ -1,0 +1,4 @@
+staticSites:
+  - name: digeto-gcap
+    buildCommand: npm run build 
+    publishDir: dist
