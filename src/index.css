@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+@theme {
+    --color-primary-blue: #36B1CF;
+    --color-secondary-blue: #BFE2EB;
+    --color-primary-green: #5D9C89;
+    --color-secondary-green: #B4D8CC;
+}
+
+:root {
+    html {
+        scroll-behavior: smooth;
+    }
+    button {
+        cursor:pointer;
+    }
+}
