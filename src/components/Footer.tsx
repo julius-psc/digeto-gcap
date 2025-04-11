@@ -69,24 +69,50 @@ const Footer: React.FC = () => {
                 Connect With Us
               </h3>
               <div className="flex justify-center md:justify-start space-x-4">
-                <a
-                  href="https://linkedin.com/company/digeto"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300"
-                  style={{ color: primaryBlue }}
-                >
-                  {/* Corrected LinkedIn SVG */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
+                {/* LinkedIn for Digeto */}
+                <div className="flex items-center space-x-2">
+                  <span className="text-gray-700 font-semibold text-sm">Digeto</span>
+                  <a
+                    href="https://linkedin.com/company/digeto"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                    style={{ color: primaryBlue }}
+                    aria-label="LinkedIn for Digeto"
                   >
-                    <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.64v2.16h.05c.51-.96 1.77-1.97 3.65-1.97 3.9 0 4.61 2.57 4.61 5.91V24h-4v-7.72c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8z" />
-                  </svg>
-                </a>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.64v2.16h.05c.51-.96 1.77-1.97 3.65-1.97 3.9 0 4.61 2.57 4.61 5.91V24h-4v-7.72c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8z" />
+                    </svg>
+                  </a>
+                </div>
+                {/* LinkedIn for Accelerator Program */}
+                <div className="flex items-center space-x-2">
+                  <span className="text-gray-700 font-semibold text-sm">EDGE</span>
+                  <a
+                    href="https://www.linkedin.com/showcase/edge-global-career-accelerator-program/posts/?feedView=all"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex h-10 w-10 items-center justify-center rounded-full bg-white shadow-sm hover:shadow-md transition-all duration-300"
+                    style={{ color: primaryBlue }}
+                    aria-label="LinkedIn for Accelerator Program"
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="20"
+                      height="20"
+                      fill="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.5 8h4V24h-4V8zm7.5 0h3.64v2.16h.05c.51-.96 1.77-1.97 3.65-1.97 3.9 0 4.61 2.57 4.61 5.91V24h-4v-7.72c0-1.84-.03-4.2-2.56-4.2-2.56 0-2.95 2-2.95 4.06V24h-4V8z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -94,7 +120,7 @@ const Footer: React.FC = () => {
           {/* Copyright */}
           <div className="pt-6 border-t border-gray-200 w-full">
             <p className="text-center text-sm text-gray-500">
-              © {new Date().getFullYear()} Digeto. All rights reserved by <a className='text-primary-blue hover:text-secondary-blue bold' target="_blank" href="https://www.juliuspeschard.com">Julius Peschard</a>
+              © {new Date().getFullYear()} Digeto
             </p>
           </div>
         </div>

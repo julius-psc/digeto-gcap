@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import StatusPing from "./misc/StatusPing";
-import heroImg from '../assets/images/team-meet.jpg'
+import heroImg from '../assets/images/globe-2.png'
 
 const Hero = () => {
     const primaryBlue = "var(--color-primary-blue)";
