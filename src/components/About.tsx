@@ -1,6 +1,6 @@
 import React from "react";
 import { Sparkles, ArrowRight } from "lucide-react";
-import aboutImg from "../assets/images/team-meet4.png";
+import aboutImg from "../assets/images/team-meet5.png";
 
 const About: React.FC = () => {
   return (

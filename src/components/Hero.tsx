@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import StatusPing from "./misc/StatusPing";
-import heroImg from '../assets/images/globe-2.png'
+import heroImg from '../assets/images/team-meet5.jpg'
 
 const Hero = () => {
     const primaryBlue = "var(--color-primary-blue)";
@@ -105,7 +105,7 @@ const Hero = () => {
                                     whileHover={{ scale: 1.05 }}
                                     whileTap={{ scale: 0.95 }}
                                 >
-                                    <span className="relative z-10">Apply by April 30, 2025</span>
+                                    <span className="relative z-10">Apply by May 31st, 2025</span>
                                     <span className="absolute inset-0 -translate-y-full transition-transform duration-300 ease-out group-hover:translate-y-0" style={{ backgroundColor: "#2888A3" }}></span>
                                 </motion.button>
                             </a>

@@ -4,7 +4,7 @@ const StatusPing: React.FC = () => {
   const [isApplicationsOpen, setIsApplicationsOpen] = useState(true);
 
   useEffect(() => {
-    const targetDate = new Date('2025-04-30T23:59:59Z'); // April 30, 2025 at the end of the day UTC
+    const targetDate = new Date('2025-05-31T23:59:59Z'); // May 31, 2025 at the end of the day UTC
     const intervalId = setInterval(() => {
       const currentDate = new Date();
       if (currentDate >= targetDate) {
