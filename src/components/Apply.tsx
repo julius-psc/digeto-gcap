@@ -85,7 +85,7 @@ const Apply: React.FC = () => {
                   Important Dates
                 </span>
                 <h4 className="text-xl font-bold text-gray-900 mb-2">Next Cohort: June 2025</h4>
-                <p className="text-red-600 font-medium">Deadline: April 30, 2025</p>
+                <p className="text-red-600 font-medium">Deadline: May 31, 2025</p>
               </div>
               <a target="_blank" href="https://www.jotform.com/form/250922808027052#preview">
                 <button
