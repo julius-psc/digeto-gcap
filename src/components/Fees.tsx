@@ -18,8 +18,8 @@ const Fees: React.FC = () => {
           
           <div className="mb-8 rounded-xl border border-gray-100 bg-white p-6 shadow-sm">
             <div className="mb-4 flex items-center justify-between">
-              <span className="text-lg text-gray-700">Program Fee</span>
-              <span className="text-2xl font-bold" style={{ color: primaryBlue }}>$3,000 USD</span>
+              <span className="text-lg text-gray-700">Membership Fee</span>
+              <span className="text-2xl font-bold" style={{ color: primaryBlue }}>$500 USD</span>
             </div>
             
             <div className="rounded-lg bg-gray-50 p-4">
