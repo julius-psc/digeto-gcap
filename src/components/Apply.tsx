@@ -5,7 +5,7 @@ const Apply: React.FC = () => {
   const [, setIsHovered] = useState<boolean>(false);
 
   return (
-    <div id="apply" className="relative bg-gray-50 py-20">
+    <div id="apply" className="relative py-20">
       {/* Background accent */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute -right-16 top-1/4 h-80 w-80 rounded-full bg-[#36B1CF]/5 blur-3xl transform rotate-12"></div>

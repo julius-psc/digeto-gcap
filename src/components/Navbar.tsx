@@ -6,15 +6,14 @@ const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
-    { href: 'about', label: 'About Us' },
-    { href: 'highlights', label: 'Program Highlights' },
-    { href: 'structure', label: 'Program Structure' },
-    { href: 'apply', label: 'How to Apply' },
-    { href: 'fees', label: 'Fees' },
-    { href: 'footer', label: 'Contact' },
+    { href: 'about', label: 'About' },
+    { href: 'highlights', label: 'For Talent' },
+    { href: 'structure', label: 'For Startups' },
+    { href: 'apply', label: 'Program Structure' },
+    { href: 'fees', label: 'Curriculum' },
+    { href: 'footer', label: 'Fees' },
   ];
 
-  // Handle smooth scroll
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
     e.preventDefault();
     const element = document.getElementById(sectionId);
@@ -24,53 +23,53 @@ const Navbar: React.FC = () => {
         block: 'start',
       });
     }
-    setIsOpen(false); // Close mobile menu after click
+    setIsOpen(false);
   };
 
   return (
-    <nav className="flex justify-center">
-      <div className="px-6 py-4 backdrop-blur-sm bg-white bg-opacity-90 w-[80%]">
+    <nav className="flex justify-center fixed top-4 left-0 right-0 z-50">
+      <div className="w-[60%] px-6 py-3 border border-white/15 bg-white/10 backdrop-blur-md rounded-full shadow-md">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
-          <img className="w-36 h-auto" src={logo} alt="EDGE Digeto Logo" />
+          <img className="w-28 h-auto" src={logo} alt="EDGE Digeto Logo" />
 
-          {/* Desktop Navigation */}
+          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={`#${link.href}`}
                 onClick={(e) => handleScroll(e, link.href)}
-                className="text-black hover:text-primary-blue transition-all duration-300 ease-in-out font-medium tracking-wide hover:scale-105"
+                className="text-white hover:text-primary-blue transition-all duration-300 ease-in-out tracking-wide hover:scale-105"
               >
                 {link.label}
               </a>
             ))}
           </div>
 
-          {/* CTA Button - Desktop */}
+          {/* CTA Button */}
           <div className="hidden lg:block flex-shrink-0">
             <a
               target="_blank"
               href="https://www.jotform.com/form/250922808027052#preview"
-              className="bg-primary-blue text-white px-5 py-2.5 rounded-lg hover:bg-secondary-blue transition-all duration-300 ease-in-out font-medium transform hover:-translate-y-0.5"
+              className="bg-white text-black px-5 py-2.5 rounded-full hover:bg-secondary-blue transition-all duration-300 ease-in-out font-medium transform hover:-translate-y-0.5"
             >
               Apply Now
             </a>
           </div>
 
-          {/* Hamburger Menu - Mobile */}
+          {/* Mobile Menu Icon */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-600 hover:text-primary-blue focus:outline-none transition-colors duration-200"
+              className="text-white hover:text-primary-blue focus:outline-none transition-colors duration-200"
             >
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Dropdown */}
         <div
           className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
             isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'

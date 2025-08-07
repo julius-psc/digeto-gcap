@@ -67,7 +67,7 @@ const Highlights: React.FC = () => {
   ];
 
   return (
-    <div id="highlights" className="relative bg-gray-50 py-20 overflow-x-hidden">
+    <div id="highlights" className="relative py-20 overflow-x-hidden">
       {/* Background accent */}
       <div className="absolute inset-0 z-0">
         <div className="absolute -right-20 bottom-1/4 h-72 w-72 rounded-full bg-[#36B1CF]/5 blur-3xl"></div>

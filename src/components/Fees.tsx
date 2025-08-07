@@ -5,7 +5,7 @@ const Fees: React.FC = () => {
   const secondaryBlue = "var(--color-secondary-blue)";
 
   return (
-    <div id="fees" className="relative overflow-hidden bg-white py-14 md:py-20">
+    <div id="fees" className="relative overflow-hidden py-14 md:py-20">
       <div className="absolute inset-0 opacity-30 z-0">
         <div className="absolute inset-0 bg-gradient-to-br from-[#5D9C89]/5 to-[#B4D8CC]/20"></div>
         <div className="absolute -right-20 bottom-0 h-64 w-64 rounded-full bg-opacity-20 blur-3xl" style={{ backgroundColor: secondaryBlue }}></div>

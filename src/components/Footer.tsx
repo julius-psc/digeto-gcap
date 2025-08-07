@@ -7,7 +7,7 @@ const Footer: React.FC = () => {
   const secondaryBlue = "var(--color-secondary-blue)";
 
   return (
-    <footer className="relative bg-white text-gray-800 py-12 overflow-hidden">
+    <footer className="relative text-gray-800 py-12 overflow-hidden">
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 z-0">
         <div

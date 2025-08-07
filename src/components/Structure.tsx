@@ -47,7 +47,7 @@ const Structure: React.FC = () => {
   ];
 
   return (
-    <div id="structure" className="relative bg-white py-20">
+    <div id="structure" className="relative py-20">
       {/* Background accent */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <div className="absolute -left-16 top-1/4 h-80 w-80 rounded-full bg-[#36B1CF]/5 blur-3xl transform -rotate-12"></div>

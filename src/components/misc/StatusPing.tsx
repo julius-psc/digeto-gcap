@@ -1,35 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
+import { IconArrowRight } from '@tabler/icons-react';
 
 const StatusPing: React.FC = () => {
-  const [isApplicationsOpen, setIsApplicationsOpen] = useState(true);
+  const [isApplicationsOpen, setIsApplicationsOpen] = useState(false);
+
+  const cohortDates = useMemo(() => [
+    new Date('2025-08-25T00:00:00Z'),
+    new Date('2026-01-10T00:00:00Z'),
+    // Add more cohorts here
+  ], []);
 
   useEffect(() => {
-    const targetDate = new Date('2025-05-31T23:59:59Z'); // May 31, 2025 at the end of the day UTC
-    const intervalId = setInterval(() => {
-      const currentDate = new Date();
-      if (currentDate >= targetDate) {
-        setIsApplicationsOpen(false);
-        clearInterval(intervalId); // Stop the interval once the date is reached
-      }
-    }, 1000);
+    const now = new Date();
 
-    return () => clearInterval(intervalId);
-  }, []);
+    const upcoming = cohortDates.find((date) => date > now);
+    if (upcoming) {
+      const openDate = new Date(upcoming);
+      openDate.setMonth(openDate.getMonth() - 1);
 
-  const pingColorClass = isApplicationsOpen ? 'bg-green-400' : 'bg-red-500';
+      setIsApplicationsOpen(now >= openDate && now < upcoming);
+    } else {
+      setIsApplicationsOpen(false);
+    }
+  }, [cohortDates]);
+
+  const statusColor = isApplicationsOpen ? 'bg-green-400' : 'bg-red-500';
   const statusText = isApplicationsOpen ? 'Applications open' : 'Applications closed';
 
   return (
-    <div className="flex items-center space-x-2">
-      <div className="relative">
-        <span className="flex h-3 w-3">
-          <span className={`animate-ping absolute inline-flex h-full w-full rounded-full ${pingColorClass} opacity-75`}></span>
-          <span className={`relative inline-flex rounded-full h-3 w-3 ${pingColorClass}`}></span>
-        </span>
+    <div className="flex items-center space-x-4 rounded-full border border-white/15 bg-white/10 backdrop-blur-md px-3 py-2">
+      {/* Ping and Status */}
+      <div className="flex items-center space-x-2">
+        <div className="relative flex items-center justify-center">
+          <span className={`h-3 w-3 rounded-full ${statusColor} opacity-100 z-10`} />
+          <span className={`absolute h-5 w-5 rounded-full ${statusColor} opacity-40`} />
+        </div>
+        <span className="text-sm text-white font-medium">{statusText}</span>
       </div>
-      <span className="text-sm font-medium text-gray-900">
-        {statusText}
-      </span>
+
+      {/* Divider */}
+      <div className="h-4 w-px bg-white/40" />
+
+      {/* CTA */}
+      <div className="flex items-center space-x-1 cursor-pointer">
+        <span className="text-sm text-white/50 font-medium">Enroll now</span>
+        <IconArrowRight size={16} className="text-gray-400 opacity-70" />
+      </div>
     </div>
   );
 };

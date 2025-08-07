@@ -4,7 +4,7 @@ import aboutImg from "../assets/images/team-meet5.png";
 
 const About: React.FC = () => {
   return (
-    <div id="about" className="relative bg-white py-20">
+    <div id="about" className="relative py-20">
       <div className="container relative mx-auto max-w-6xl px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mb-4">
