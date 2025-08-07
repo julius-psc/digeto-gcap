@@ -2,6 +2,7 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
+import ForTalent from "./components/ForTalent";
 import Highlights from "./components/Highlights";
 import Structure from "./components/Structure";
 import Apply from "./components/Apply";
@@ -17,6 +18,9 @@ function App() {
       </div>
       <div id="about">
         <About />
+      </div>
+      <div id="for-talent">
+        <ForTalent />
       </div>
       <div id="highlights">
         <Highlights />
