@@ -10,9 +10,6 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { kind: "hash", href: "about", label: "About" },
     { kind: "hash", href: "program-structure", label: "Program Structure" },
-    { kind: "hash", href: "curriculum", label: "Curriculum" },
-    { kind: "hash", href: "what-sets-edge-apart", label: "What Sets EDGE Apart" },
-    { kind: "hash", href: "testimonials", label: "Testimonials" },
     { kind: "hash", href: "team", label: "Team" },
     { kind: "hash", href: "fees", label: "Fees" },
     { kind: "route", to: "/startups", label: "For Startups" },
@@ -44,7 +41,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="flex justify-center fixed top-4 left-0 right-0 z-50">
-      <div className="w-[75%] px-6 py-3 border border-white/15 bg-white/10 backdrop-blur-md rounded-full shadow-md">
+      <div className="w-[60%] px-6 py-3 border border-white/15 bg-white/10 backdrop-blur-md rounded-full shadow-md">
         <div className="flex justify-between items-center h-16">
           <img
             className="w-28 h-auto cursor-pointer"
