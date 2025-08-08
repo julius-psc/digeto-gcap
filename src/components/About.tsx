@@ -1,98 +1,122 @@
 import React from "react";
+import {
+  IconTargetArrow,
+  IconEye,
+  IconNetwork,
+  IconCurrencyDollar,
+  IconBriefcase,
+  IconSettings,
+  IconRocket,
+} from "@tabler/icons-react";
+
+const Card = ({ children }: { children: React.ReactNode }) => (
+  <div className="rounded-3xl border border-neutral-200 bg-white p-6 shadow-sm">{children}</div>
+);
 
 const About: React.FC = () => {
   return (
-    <div id="about" className="relative py-20 bg-black overflow-hidden">
-      {/* Background Image Layer */}
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-30"
-        style={{ backgroundImage: "url('/refracted-glass-bg.png')" }}
-      />
-      
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-20 left-10 w-72 h-72 bg-primary-blue/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-purple-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-cyan-500/5 rounded-full blur-3xl animate-pulse delay-500"></div>
-      </div>
-      
-      {/* Content Layer */}
-      <div className="relative z-10 container mx-auto max-w-7xl px-6 lg:px-8">
+    <section id="about" className="bg-white py-20 pt-40">
+      <div className="container mx-auto max-w-7xl px-6 lg:px-8">
+        {/* Header */}
+        <header className="max-w-3xl">
+          <h2 className="text-5xl font-bold tracking-tight text-black leading-none">
+            About <span className="text-primary-blue">EDGE</span>
+          </h2>
+          <p className="mt-2 text-2xl lg:text-3xl font-light text-neutral-700">by DIGETO</p>
+          <p className="mt-8 text-xl leading-relaxed text-neutral-800">
+            DIGETO is a <span className="text-primary-blue font-semibold">global impact ecosystem</span> connecting
+            impact-driven startups with strategic investors—while equipping future talent with
+            real-world skills in sustainability, innovation, and global scaling. EDGE is our talent
+            initiative: a <span className="font-semibold">hands-on accelerator</span> where fellows learn by doing,
+            working directly with purpose-driven startups and global mentors.
+          </p>
+        </header>
 
-        {/* Main Content Grid - Asymmetric Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Content - Spans 7 columns */}
-          <div className="lg:col-span-7 space-y-8">
-            
-            {/* Main Heading with Creative Typography */}
-            <div className="space-y-6">
-              <h2 className="text-5xl lg:text-7xl font-bold tracking-tight text-white leading-none">
-                About
-                <span className="block text-primary-blue bg-gradient-to-r from-primary-blue to-cyan-400 bg-clip-text text-transparent">
-                  EDGE
-                </span>
-                <span className="block text-2xl lg:text-3xl font-light text-white/60 mt-2">
-                  by DIGETO
-                </span>
-              </h2>
+        {/* Mission / Vision / Network */}
+        <div className="mt-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Card>
+            <div className="flex items-start gap-3">
+              <IconTargetArrow size={28} />
+              <h3 className="text-xl font-semibold">Mission</h3>
             </div>
+            <p className="mt-3 text-neutral-700">
+              Amplify the impact of purpose-driven organisations by providing the resources and networks necessary for
+              global scaling.
+            </p>
+          </Card>
 
-            {/* Single Description Paragraph */}
-            <div className="backdrop-blur-md bg-white/10 border border-white/15 rounded-3xl p-5 shadow-2xl">
-              <p className="text-xl text-white/90 leading-relaxed font-light">
-                DIGETO is a <span className="text-primary-blue font-semibold">global impact ecosystem</span> founded 
-                to connect impact-driven startups with strategic investors, while equipping future talent 
-                with real-world skills in sustainability, innovation, and global expansion. EDGE is the core talent initiative within Digeto's ecosystem, designed as a 
-                <span className="text-cyan-400 font-semibold"> hands-on accelerator</span> that trains 
-                the next generation of impact professionals through real startup projects and global collaboration.
-                It's not just another course - it's a launchpad into global impact careers.
+          <Card>
+            <div className="flex items-start gap-3">
+              <IconEye size={28} />
+              <h3 className="text-xl font-semibold">Vision</h3>
+            </div>
+            <p className="mt-3 text-neutral-700">
+              A global ecosystem where impactful solutions reach every corner of the world, fostering a more
+              sustainable future.
+            </p>
+          </Card>
+
+          <Card>
+            <div className="flex items-start gap-3">
+              <IconNetwork size={28} />
+              <h3 className="text-xl font-semibold">Our Network</h3>
+            </div>
+            <ul className="mt-3 space-y-2 text-neutral-700 list-disc pl-5">
+              <li>500 Angel Investors</li>
+              <li>100+ VCs & Institutional Funds</li>
+              <li>50+ CXOs & Industry Experts</li>
+              <li>Presence across 15+ countries</li>
+            </ul>
+          </Card>
+        </div>
+
+        {/* Services */}
+        <div className="mt-16">
+          <h3 className="text-3xl font-bold text-black">Our Services</h3>
+          <div className="mt-6 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
+            <Card>
+              <div className="flex items-start gap-3">
+                <IconCurrencyDollar size={26} />
+                <h4 className="text-lg font-semibold">Fundraising</h4>
+              </div>
+              <p className="mt-2 text-neutral-700">
+                AI-assisted matching connects you with the right investors.
               </p>
-            </div>
-          </div>
+            </Card>
 
-          {/* Right Visual Element - Spans 5 columns (IMPROVED STATS PANEL) */}
-          <div className="lg:col-span-5 flex items-center justify-center">
-            
-            {/* IMPROVEMENT: Unified Stats Panel
-              - Replaced scattered absolute-positioned cards with a single, clean panel.
-              - Uses modern layout (Grid & Flexbox) for perfect alignment and responsiveness.
-              - Creates a clear visual hierarchy while maintaining a cohesive, glassmorphism design.
-            */}
-            <div className="w-full max-w-sm space-y-8 backdrop-blur-lg bg-white/10 border border-white/20 rounded-[2.5rem] p-8 shadow-2xl">
-                
-                {/* Primary Stat: Most important metric, styled to match the main heading */}
-                <div className="text-center">
-                    <p className="text-6xl font-bold bg-gradient-to-r from-primary-blue to-cyan-400 bg-clip-text text-transparent">
-                      90+
-                    </p>
-                    <p className="text-xl text-white/80 font-light tracking-wide mt-2">
-                      Impact Startups
-                    </p>
-                </div>
+            <Card>
+              <div className="flex items-start gap-3">
+                <IconBriefcase size={26} />
+                <h4 className="text-lg font-semibold">Business Opportunities</h4>
+              </div>
+              <p className="mt-2 text-neutral-700">
+                Meet potential partners and unlock strategic collaborations.
+              </p>
+            </Card>
 
-                {/* Subtle Divider */}
-                <hr className="border-white/20" />
+            <Card>
+              <div className="flex items-start gap-3">
+                <IconSettings size={26} />
+                <h4 className="text-lg font-semibold">Operational Support</h4>
+              </div>
+              <p className="mt-2 text-neutral-700">
+                Access experts in HR, Legal, Finance, Supply Chain, Marketing, and ESG.
+              </p>
+            </Card>
 
-                {/* Secondary Stats: Displayed side-by-side for a balanced layout */}
-                <div className="grid grid-cols-2 divide-x divide-white/20">
-                    
-                    <div className="text-center px-4">
-                        <p className="text-4xl font-bold text-white">15+</p>
-                        <p className="text-lg text-white/70 font-light mt-1">Countries</p>
-                    </div>
-                    
-                    <div className="text-center px-4">
-                        <p className="text-4xl font-bold text-white">€18M+</p>
-                        <p className="text-lg text-white/70 font-light mt-1">Funded</p>
-                    </div>
-                </div>
-
-            </div>
+            <Card>
+              <div className="flex items-start gap-3">
+                <IconRocket size={26} />
+                <h4 className="text-lg font-semibold">Accelerator Program</h4>
+              </div>
+              <p className="mt-2 text-neutral-700">
+                Intensive 3-month program to build the next generation of global impact leaders.
+              </p>
+            </Card>
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 

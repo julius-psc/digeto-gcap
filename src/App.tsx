@@ -1,43 +1,20 @@
 import "./App.css";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import ForTalent from "./components/ForTalent";
-import Highlights from "./components/Highlights";
-import Structure from "./components/Structure";
-import Apply from "./components/Apply";
-import Fees from "./components/Fees";
-import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Startups from "./pages/Startups";
 
 function App() {
   return (
-    <div className="bg-black">
-      <Navbar />
-      <div id="hero">
-        <Hero />
+    <Router>
+      <div className="bg-white">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/startups" element={<Startups />} />
+        </Routes>
       </div>
-      <div id="about">
-        <About />
-      </div>
-      <div id="for-talent">
-        <ForTalent />
-      </div>
-      <div id="highlights">
-        <Highlights />
-      </div>
-      <div id="structure">
-        <Structure />
-      </div>
-      <div id="apply">
-        <Apply />
-      </div>
-      <div id="fees">
-        <Fees />
-      </div>
-      <div id="footer">
-        <Footer />
-      </div>
-    </div>
+    </Router>
   );
 }
 

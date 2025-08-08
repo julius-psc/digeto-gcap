@@ -1,64 +1,95 @@
-import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import logo from '../assets/brand/edge-digeto-logo.svg';
+import React, { useState } from "react";
+import { Menu, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import logo from "../assets/brand/edge-digeto-logo.svg";
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const navLinks = [
-    { href: 'about', label: 'About' },
-    { href: 'highlights', label: 'For Talent' },
-    { href: 'structure', label: 'For Startups' },
-    { href: 'apply', label: 'Program Structure' },
-    { href: 'fees', label: 'Curriculum' },
-    { href: 'footer', label: 'Fees' },
-  ];
+    { kind: "hash", href: "about", label: "About" },
+    { kind: "hash", href: "program-structure", label: "Program Structure" },
+    { kind: "hash", href: "curriculum", label: "Curriculum" },
+    { kind: "hash", href: "what-sets-edge-apart", label: "What Sets EDGE Apart" },
+    { kind: "hash", href: "testimonials", label: "Testimonials" },
+    { kind: "hash", href: "team", label: "Team" },
+    { kind: "hash", href: "fees", label: "Fees" },
+    { kind: "route", to: "/startups", label: "For Startups" },
+  ] as const;
 
-  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+  const handleScroll = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    sectionId: string
+  ) => {
     e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start',
-      });
+    const el = document.getElementById(sectionId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsOpen(false);
+    } else {
+      navigate("/");
+      setIsOpen(false);
     }
+  };
+
+  const handleRoute = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    to: string
+  ) => {
+    e.preventDefault();
+    navigate(to);
     setIsOpen(false);
   };
 
   return (
     <nav className="flex justify-center fixed top-4 left-0 right-0 z-50">
-      <div className="w-[60%] px-6 py-3 border border-white/15 bg-white/10 backdrop-blur-md rounded-full shadow-md">
+      <div className="w-[75%] px-6 py-3 border border-white/15 bg-white/10 backdrop-blur-md rounded-full shadow-md">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <img className="w-28 h-auto" src={logo} alt="EDGE Digeto Logo" />
+          <img
+            className="w-28 h-auto cursor-pointer"
+            src={logo}
+            alt="EDGE Digeto Logo"
+            onClick={() => navigate("/")}
+          />
 
-          {/* Desktop Nav */}
+          {/* Desktop */}
           <div className="hidden lg:flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={`#${link.href}`}
-                onClick={(e) => handleScroll(e, link.href)}
-                className="text-white hover:text-primary-blue transition-all duration-300 ease-in-out tracking-wide hover:scale-105"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.kind === "route" ? (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  onClick={(e) => handleRoute(e, link.to)}
+                  className="text-black hover:text-primary-blue transition-all duration-300 tracking-wide hover:scale-105"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href={`#${link.href}`}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className="text-black hover:text-primary-blue transition-all duration-300 tracking-wide hover:scale-105"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
           </div>
 
-          {/* CTA Button */}
+          {/* CTA */}
           <div className="hidden lg:block flex-shrink-0">
             <a
               target="_blank"
               href="https://www.jotform.com/form/250922808027052#preview"
-              className="bg-white text-black px-5 py-2.5 rounded-full hover:bg-secondary-blue transition-all duration-300 ease-in-out font-medium transform hover:-translate-y-0.5"
+              className="bg-primary-blue text-white px-5 py-2.5 rounded-full hover:bg-secondary-blue transition-all duration-300 font-medium transform hover:-translate-y-0.5"
             >
               Apply Now
             </a>
           </div>
 
-          {/* Mobile Menu Icon */}
+          {/* Mobile toggle */}
           <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
@@ -69,26 +100,37 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile Dropdown */}
+        {/* Mobile dropdown */}
         <div
-          className={`lg:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isOpen ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
+          className={`lg:hidden overflow-hidden transition-all duration-300 ${
+            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div className="px-4 pt-6 pb-6 space-y-3 bg-white rounded-b-xl">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={`#${link.href}`}
-                onClick={(e) => handleScroll(e, link.href)}
-                className="block px-4 py-2 text-gray-600 hover:text-primary-blue hover:bg-gray-50 rounded-lg transition-all duration-200 font-medium"
-              >
-                {link.label}
-              </a>
-            ))}
+            {navLinks.map((link) =>
+              link.kind === "route" ? (
+                <a
+                  key={link.label}
+                  href={link.to}
+                  onClick={(e) => handleRoute(e, link.to)}
+                  className="block px-4 py-2 text-gray-600 hover:text-primary-blue hover:bg-gray-50 rounded-lg transition-all font-medium"
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <a
+                  key={link.href}
+                  href={`#${link.href}`}
+                  onClick={(e) => handleScroll(e, link.href)}
+                  className="block px-4 py-2 text-gray-600 hover:text-primary-blue hover:bg-gray-50 rounded-lg transition-all font-medium"
+                >
+                  {link.label}
+                </a>
+              )
+            )}
             <a
               href="https://www.jotform.com/form/250922808027052#preview"
-              className="block px-4 py-3 bg-primary-blue text-white rounded-lg hover:bg-secondary-blue transition-all duration-300 font-medium transform hover:-translate-y-0.5"
+              className="block px-4 py-3 bg-primary-blue text-white rounded-lg hover:bg-secondary-blue transition-all font-medium transform hover:-translate-y-0.5"
               onClick={() => setIsOpen(false)}
             >
               Apply Now

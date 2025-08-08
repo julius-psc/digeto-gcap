@@ -28,23 +28,23 @@ const StatusPing: React.FC = () => {
   const statusText = isApplicationsOpen ? 'Applications open' : 'Applications closed';
 
   return (
-    <div className="flex items-center space-x-4 rounded-full border border-white/15 bg-white/10 backdrop-blur-md px-3 py-2">
+    <div className="flex items-center space-x-4 rounded-full bg-black/10 backdrop-blur-md px-3 py-2">
       {/* Ping and Status */}
       <div className="flex items-center space-x-2">
         <div className="relative flex items-center justify-center">
           <span className={`h-3 w-3 rounded-full ${statusColor} opacity-100 z-10`} />
           <span className={`absolute h-5 w-5 rounded-full ${statusColor} opacity-40`} />
         </div>
-        <span className="text-sm text-white font-medium">{statusText}</span>
+        <span className="text-sm text-black font-medium">{statusText}</span>
       </div>
 
       {/* Divider */}
-      <div className="h-4 w-px bg-white/40" />
+      <div className="h-4 w-px bg-black/40" />
 
       {/* CTA */}
       <div className="flex items-center space-x-1 cursor-pointer">
-        <span className="text-sm text-white/50 font-medium">Enroll now</span>
-        <IconArrowRight size={16} className="text-gray-400 opacity-70" />
+        <span className="text-sm text-black/50 font-medium">Enroll now</span>
+        <IconArrowRight size={16} className="text-gray-600 opacity-70" />
       </div>
     </div>
   );
