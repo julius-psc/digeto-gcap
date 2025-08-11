@@ -1,8 +1,8 @@
 import React from "react";
-import About from "../components/About";
-import KeyMetrics from "../components/KeyMetrics";
-import Offer from "../components/Offer";
-import Testimonials from "../components/Testimonials";
+import About from "../components/startup/About";
+import KeyMetrics from "../components/startup/KeyMetrics";
+import Offer from "../components/startup/Offer";
+import Testimonials from "../components/startup/Testimonials";
 import Team from "@/components/Team";
 import Footer from "@/components/Footer";
 

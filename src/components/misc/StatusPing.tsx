@@ -43,7 +43,7 @@ const StatusPing: React.FC = () => {
 
       {/* CTA */}
       <div className="flex items-center space-x-1 cursor-pointer">
-        <span className="text-sm text-black/50 font-medium">Enroll now</span>
+        <a href="https://www.jotform.com/form/250922808027052#preview" target="_blank" className="text-sm text-black/50 font-medium">Enroll now</a>
         <IconArrowRight size={16} className="text-gray-600 opacity-70" />
       </div>
     </div>
