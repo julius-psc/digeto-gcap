@@ -203,7 +203,7 @@ export default function ApplicationForm() {
 
     try {
       const fd = new FormData();
-      fd.append("access_key", import.meta.env.VITE_W3F_KEY as string);
+      fd.append("access_key", "8fa013a3-311c-401b-8dbc-ff436998fccd");
       fd.append("subject", "New EDGE Application");
       fd.append("from_name", `${formData.firstName} ${formData.lastName}`);
       fd.append("botcheck", ""); // honeypot (optional)
