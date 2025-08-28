@@ -34,6 +34,7 @@ const Navbar: React.FC = () => {
       el.scrollIntoView({ behavior: "smooth", block: "start" });
       setIsOpen(false);
     } else {
+      // If we're on another route, go home then the user can scroll
       navigate("/");
       setIsOpen(false);
     }
@@ -45,6 +46,12 @@ const Navbar: React.FC = () => {
   ) => {
     e.preventDefault();
     navigate(to);
+    setIsOpen(false);
+  };
+
+  // Navigate to the custom application form route
+  const goToApply = () => {
+    navigate("/form");
     setIsOpen(false);
   };
 
@@ -72,7 +79,7 @@ const Navbar: React.FC = () => {
             onClick={() => navigate("/")}
           />
 
-          {/* Desktop (unchanged) */}
+          {/* Desktop */}
           <div className="hidden lg:flex items-center space-x-8">
             {navLinks.map((link) =>
               link.kind === "route" ? (
@@ -97,18 +104,18 @@ const Navbar: React.FC = () => {
             )}
           </div>
 
-          {/* Desktop CTA (unchanged) */}
+          {/* Desktop CTA -> go to custom form route */}
           <div className="hidden lg:block flex-shrink-0">
-            <a
-              target="_blank"
-              href="https://www.jotform.com/form/250922808027052#preview"
+            <button
+              type="button"
+              onClick={goToApply}
               className="bg-primary-blue text-white px-5 py-2.5 rounded-full hover:bg-secondary-blue transition-all duration-300 font-medium transform hover:-translate-y-0.5"
             >
               Apply Now
-            </a>
+            </button>
           </div>
 
-          {/* Mobile toggle — centered + a11y */}
+          {/* Mobile toggle */}
           <div className="lg:hidden">
             <button
               type="button"
@@ -123,7 +130,7 @@ const Navbar: React.FC = () => {
           </div>
         </div>
 
-        {/* Mobile dropdown: smooth slide + fade */}
+        {/* Mobile dropdown */}
         <div
           id="mobile-nav"
           className={`
@@ -157,14 +164,14 @@ const Navbar: React.FC = () => {
               )}
             </div>
 
-            {/* Mobile CTA */}
-            <a
-              href="https://www.jotform.com/form/250922808027052#preview"
-              className="mt-4 block text-center px-4 py-3 bg-primary-blue text-white rounded-xl hover:bg-secondary-blue transition-all font-medium transform hover:-translate-y-0.5"
-              onClick={() => setIsOpen(false)}
+            {/* Mobile CTA -> go to custom form route */}
+            <button
+              type="button"
+              onClick={goToApply}
+              className="mt-4 block w-full text-center px-4 py-3 bg-primary-blue text-white rounded-xl hover:bg-secondary-blue transition-all font-medium transform hover:-translate-y-0.5"
             >
               Apply Now
-            </a>
+            </button>
           </div>
         </div>
       </div>
