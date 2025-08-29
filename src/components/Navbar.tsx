@@ -10,7 +10,6 @@ const Navbar: React.FC = () => {
   const navLinks = [
     { kind: "hash", href: "about", label: "About" },
     { kind: "hash", href: "program-structure", label: "Program Structure" },
-    { kind: "hash", href: "team", label: "Team" },
     { kind: "hash", href: "fees", label: "Fees" },
     { kind: "route", to: "/startups", label: "For Startups" },
   ] as const;
