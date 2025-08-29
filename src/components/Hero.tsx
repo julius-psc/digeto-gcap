@@ -1,58 +1,62 @@
 import StatusPing from "./misc/StatusPing";
-import { IconArrowRight } from '@tabler/icons-react';
-import heroImg from '../assets/images/team1.jpg';
+import { IconArrowRight } from "@tabler/icons-react";
+import heroImg from "../assets/images/edge-zoom.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Hero = () => {
+  const navigate = useNavigate();
+
+  const goToApply = () => {
+    navigate("/form");
+  };
+
   return (
-    <div className="relative h-screen w-full bg-white">
-      <div className="relative z-10 h-full flex">
-        
-        {/* Left column - text */}
-        <div className="w-full lg:w-1/2 flex items-center">
-          <div className="container mx-auto max-w-xl px-6 lg:px-12">
-            <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
-              <div className="mb-6">
-                <StatusPing />
-              </div>
-
-              <h1 className="mb-6 text-4xl font-bold tracking-tight text-black md:text-5xl lg:text-6xl">
-                Launch your Impact Career with <span className="text-primary-blue">EDGE</span>
-              </h1>
-
-              <p className="mb-8 max-w-lg text-lg font-light text-black md:text-xl">
-                Join our hands-on accelerator connecting changemakers with purpose-driven startups, expert mentors, and global networks.
-              </p>
-
-              <div className="flex flex-col space-y-4 sm:flex-row sm:space-x-4 sm:space-y-0">
-                <a
-                  target="_blank"
-                  href="https://www.jotform.com/form/250922808027052#preview"
-                >
-                  <button className="rounded-full bg-primary-blue text-white px-4 py-2 md:text-lg">
-                    Apply by August 25th
-                  </button>
-                </a>
-                <a href="#about">
-                  <button className="flex items-center justify-center space-x-2 rounded-full backdrop-blur-md bg-black/10 text-black px-4 py-2 font-medium md:text-lg">
-                    <span>Learn More</span>
-                    <IconArrowRight size={20} />
-                  </button>
-                </a>
-              </div>
-            </div>
-          </div>
+    <section className="relative w-full bg-white py-32">
+      <div className="container mx-auto max-w-5xl px-6 text-center">
+        {/* Ping */}
+        <div className="mb-6 flex justify-center">
+          <StatusPing />
         </div>
 
-        {/* Right column - image */}
-        <div className="hidden lg:block w-1/2 h-full">
+        {/* Heading */}
+        <h1 className="mb-6 text-4xl font-bold tracking-tight text-black md:text-5xl lg:text-6xl">
+          Launch your Impact Career with{" "}
+          <span className="text-primary-blue">EDGE</span>
+        </h1>
+
+        {/* Subtext */}
+        <p className="mb-8 mx-auto max-w-2xl text-lg font-light text-black md:text-xl">
+          Join our hands-on accelerator connecting changemakers with
+          purpose-driven startups, expert mentors, and global networks.
+        </p>
+
+        {/* Buttons */}
+        <div className="mb-12 flex flex-col space-y-4 sm:flex-row sm:justify-center sm:space-x-4 sm:space-y-0">
+          <button
+            onClick={goToApply}
+            className="rounded-full bg-primary-blue px-6 py-3 text-lg font-semibold text-white"
+          >
+            Apply by August 25th
+          </button>
+
+          <a href="#about">
+            <button className="flex items-center justify-center space-x-2 rounded-full border border-black/20 bg-black/5 px-6 py-3 text-lg font-medium text-black backdrop-blur-md hover:bg-black/10">
+              <span>Learn More</span>
+              <IconArrowRight size={20} />
+            </button>
+          </a>
+        </div>
+
+        {/* Image Section */}
+        <div className="flex justify-center">
           <img
             src={heroImg}
             alt="Hero"
-            className="w-full h-full object-cover"
+            className="rounded-2xl shadow-lg w-full max-w-4xl object-cover"
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
